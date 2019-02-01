@@ -4,6 +4,7 @@ let days = document.querySelector('.days');
 let hours = document.querySelector('.hours');
 let minutes = document.querySelector('.minutes');
 let seconds = document.querySelector('.seconds'); 
+let tic = new Audio();
 
 const deadline = new Date(2019, 2, 31, 12, 0, 0); 
 
@@ -20,6 +21,8 @@ function timer () {
     minutes.textContent = M >=10 ? M : `0${M}`;
     hours.textContent = H >= 10 ? H : `0${H}`;
     days.textContent = D >= 10 ? D : `0${D}`;
+    tic.src = './sound.mp3';
+    tic.play();
 }
 
 
