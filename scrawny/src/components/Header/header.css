@@ -1,0 +1,53 @@
+ 
+.header-wrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px; 
+    background-color: #97c00e;
+}
+
+.theme-mode,
+.header-add-button{  
+    width: 50px;
+    height: 50px; 
+    border-radius: 50%;
+    transition: .3s;
+    border: 3px solid #fff; 
+    background-color: #658109fa; 
+}
+.darkmode{
+    background: url(./moon.png) no-repeat center;
+} 
+.lightmode{
+    background: url(./sun.png) no-repeat center;
+}
+.theme-mode{
+    background-color: #658109fa; 
+}
+.theme-mode:hover{
+    cursor: pointer; 
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 8px 15px -4px #000;
+    transition: .3s; 
+
+
+}
+.header-add-button{ 
+    text-align: center;
+    line-height: 28px; 
+    font-weight: 200;
+    font-size: 70px;
+
+}
+.header-add-button:hover{   
+    cursor: pointer; 
+    transform: translate(2px, -2px);
+    box-shadow: -6px 8px 15px -4px #000;
+    transition: .3s;
+
+}
+.header-logo{
+    display: block;
+    width: 125px;
+}

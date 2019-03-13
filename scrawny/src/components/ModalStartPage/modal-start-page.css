@@ -1,0 +1,62 @@
+.start-modal {
+  background-color: #97c00e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  color: #fff;
+  text-shadow: 2px 2px 3px #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+.greetings {
+  margin: 20px;
+  text-shadow: 2px 2px 3px #000;
+  font-size: 2.2rem;
+}
+form > div {
+  margin: 10px 0;
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+form input {
+  max-width: 70px;
+  padding: 5px;
+  box-shadow: 2px 2px 3px #000;
+  font-weight: 700;
+  font-family: inherit;
+  font-size: 1.2rem; 
+  text-align: center;
+}
+.finish {
+  display: block;
+  background-color: red;
+  padding: 10px;
+  width: 60%;
+  margin: 30px auto;
+  color: #fff;
+  font-weight: 700;
+  font-family: inherit;
+  font-size: 1.2rem;
+  text-shadow: 2px 2px 3px #000;
+  box-shadow: 2px 2px 3px #000;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+.finish:hover {
+  transform: scale(1.03);
+  transition: 0.3s;
+}
+.title-img{
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  max-width: 100%;
+}

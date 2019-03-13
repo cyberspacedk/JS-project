@@ -1,0 +1,18 @@
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
+.navigation a{
+    text-align: center;
+    width: 33%;
+    padding: 18px 0;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 600;
+}
+.navigation .active {
+    background-color: #ccc;
+    color: #fff;
+    text-shadow: 2px 2px 3px #000;
+}
