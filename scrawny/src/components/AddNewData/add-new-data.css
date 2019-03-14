@@ -58,14 +58,19 @@
   font-weight: 700;
 }
 .add-new-input-controls input {
-  width: 90px;
-  padding: 5px;
+  width: 100px;
+  padding: 15px;
   box-shadow: 2px 2px 3px #000;
   font-weight: 700;
   font-family: inherit;
   font-size: 1rem;
   text-align: center;
 }
+
+input[type="date"]{
+  width: 200px;
+}
+
 .add-new-controls {
   display: flex; 
   flex-direction: column;

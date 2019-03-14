@@ -5,8 +5,8 @@ import './navigation.css';
 const Navigation = () => {
   return (
     <nav className="navigation">
-      <NavLink to="/bodymassindex" > Body Mass Index </NavLink>
-      <NavLink to="/weight" > Weight </NavLink>
+      <NavLink to="/bodymassindex"> Body Mass Index </NavLink>
+      <NavLink to="/chart"> Chart </NavLink>
       <NavLink to="/history" > History </NavLink>
     </nav>
   )

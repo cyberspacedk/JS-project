@@ -1,0 +1,34 @@
+.history-list{
+    color: #000;
+    background-color: #ccc; 
+}
+.history-item:nth-child(odd){
+    background-color: rgb(163, 163, 163);
+}
+.history-item{
+    display: flex;
+    justify-content: space-between; 
+    align-items:center;
+}
+.history-item p{
+    width: calc(100% / 3);
+    padding: 10px;
+    text-align: center;
+}
+
+.history-date{
+    font-size: 0.8rem;
+}
+.history-weight{
+    font-size: 2.2rem; 
+}
+.history-weight span{
+    font-size: 1rem;
+    color: rgb(77, 77, 77);
+}
+.ididit{
+    color: green;
+}
+.iloser{
+    color: red;
+}

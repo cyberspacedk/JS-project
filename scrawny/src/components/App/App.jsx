@@ -6,6 +6,8 @@ import ModalStartPage from '../ModalStartPage/ModalStartPage';
 import AddNewData from '../AddNewData/AddNewData';
 import Navigation from '../Navigation/Navigation';
 import BodyMassIndex from '../BodyMassIndex/BodyMassIndex';
+import History from '../History/History';
+import Chart from '../Chart/Chart';
 
 
 import './App.css';
@@ -23,11 +25,12 @@ class App extends Component {
  
   state={
     startData: JSON.parse(localStorage.getItem('startData')) ? JSON.parse(localStorage.getItem('startData')) : initialState ,
-    updateData: {weight:'',date:'',time:''},
+    updateData: {weight:'', date:''},
     achievement:[],
     darkmode : false,
     startModal: true,
     addNewData: false, 
+    lastMeasure: {},
     
   }
   
@@ -35,7 +38,9 @@ class App extends Component {
     if(this.getFromLocalStorage('startData') !== null) this.setState({startModal:false}); 
   }
   componentDidMount(){  
-    this.setState( { darkmode: this.getFromLocalStorage('mode'), achievement: this.getFromLocalStorage('hallOfFames') } ); 
+    this.setState( { darkmode: this.getFromLocalStorage('mode'), 
+                      achievement: this.getFromLocalStorage('hallOfFames'),
+                      lastMeasure : this.getFromLocalStorage('lastMeasure')  } ); 
   }
    
   changeThemeMode = async()=>{
@@ -69,31 +74,34 @@ class App extends Component {
     localStorage.setItem(key, JSON.stringify(obj));
   }
 
-  wrightAchive = async({target})=>{
+  wrightAchieve = async({target})=>{
     await this.setState({
       updateData: {...this.state.updateData, [target.name]:target.value}
     })
   } 
+
   wrightToHallofFame = async(e)=>{
     e.preventDefault();
+    this.state.updateData.id = Date.now();
 
       await this.setState({
-        achievement: [this.state.updateData].concat(this.state.achievement),
+        achievement: this.state.achievement !== null ? [this.state.updateData, ...this.state.achievement]:[this.state.updateData],
         addNewData: false,
-        updateData: { weight: '', date: '', time:'', }
-      })
+        lastMeasure: this.state.updateData,
+        updateData: { weight: '', date: ''}         
+      }) 
       this.setTolocalStorage(this.state.achievement,'hallOfFames');
+      this.setTolocalStorage(this.state.lastMeasure,'lastMeasure');
   }
 
     
 
 
   render() { 
-    const {darkmode, startModal, startData, addNewData, updateData}=this.state;
+    const {darkmode, startModal, startData, addNewData, updateData, achievement, lastMeasure}=this.state;
     const {startWeight, startHeight, startGoal}=this.state.startData;
-    const BMI = (startWeight / (Math.pow( (startHeight/100), 2))).toFixed(2)*1; 
-    const leftTogoal = Math.abs(startWeight -startGoal);
-
+     
+    
   return (
     <div className="container">
 
@@ -101,14 +109,31 @@ class App extends Component {
     <Navigation />
 
     <Switch>
-      <Route path='/bodymassindex' render={(props)=> (
-      <BodyMassIndex goal={startGoal} 
-                     height={startHeight} 
-                     currentWeight={startWeight}
-                     bmi={BMI}
-                     left={leftTogoal}
-                     {...props}/>) } />
 
+      <Route path='/' exact render={(props)=> (
+        <BodyMassIndex goal={startGoal} 
+                      height={startHeight} 
+                      currentWeight={startWeight} 
+                      lastMeasure={lastMeasure} 
+                      {...props}/>) }/>
+
+      <Route path='/bodymassindex' render={(props)=> (
+        <BodyMassIndex goal={startGoal} 
+                      height={startHeight} 
+                      currentWeight={startWeight} 
+                      lastMeasure={lastMeasure} 
+                      {...props}/>) } 
+      />
+      
+      <Route path='/chart' render = {(props)=>(
+        <Chart />
+      )} />
+
+      <Route path='/history' render = {(props) =>(
+         <History history={achievement} 
+                  startWeight={startWeight}/>) } 
+      />
+        
     </Switch>
 
 
@@ -116,7 +141,7 @@ class App extends Component {
     {startModal && <ModalStartPage getStart={this.getStartParams} close={this.closeStartModal} val={startData}/>}
     <AddNewData close={this.toggleAddNewData} 
                 isShow={addNewData}
-                getNewData={this.wrightAchive}
+                getNewData={this.wrightAchieve}
                 wrightNewData={this.wrightToHallofFame}
                 val={updateData}/>
     </div>
