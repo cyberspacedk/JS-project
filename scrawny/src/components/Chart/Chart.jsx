@@ -27,6 +27,8 @@ class Chart extends Component {
 
     const data = {
       labels: [...getDateHisory],
+
+      
       datasets: [
         {
           label: "How I became a human",
