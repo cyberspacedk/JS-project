@@ -12,9 +12,7 @@ class Chart extends Component {
 
     componentDidMount(){
         const dataHistory = JSON.parse(localStorage.getItem("hallOfFames"));
-        this.setState({
-            dataHistory: [...dataHistory]
-        })
+        if(dataHistory) this.setState({ dataHistory: [...dataHistory]})
     }
 
 
