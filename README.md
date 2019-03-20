@@ -1,11 +1,12 @@
-React
+### React
 
-[The Venue](https://react-cyberspacedk.surge.sh/)
-[StarWars](https://startwars-cyberspacedk.surge.sh/people/)
+- [The Venue](https://react-cyberspacedk.surge.sh/)
 
-React/Redux
+- [StarWars](https://startwars-cyberspacedk.surge.sh/people/)
 
-[privat currency](https://privat-cyberspacedk.surge.sh/)
+### React/Redux
+
+- [privat currency](https://privat-cyberspacedk.surge.sh/)
 
 
 
