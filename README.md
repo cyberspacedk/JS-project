@@ -4,7 +4,7 @@
 
 - [StarWars](https://startwars-cyberspacedk.surge.sh/people/)
 
--[Todo](https://todo-cyberspacedk.surge.sh/)
+- [Todo](https://todo-cyberspacedk.surge.sh/)
 
 ### React/Redux
 
