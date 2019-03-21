@@ -1,11 +1,17 @@
-import React, { Component } from 'react'
+import React from 'react'
+import {CityLogo} from '../UI/icons';
 
-export default class Footer extends Component {
-  render() {
-    return (
-      <div>
-        
+const Footer = () => {
+  return (
+    <footer className="bck_blue">
+      <div className="footer_logo">
+      <CityLogo width="70px" height="70px" link={true} linkTo="/"/>
       </div>
-    )
-  }
+      <div className="footer_descl">
+      frontend.dk@gmail.com All rights reserved. 2019 
+      </div>
+    </footer>
+  )
 }
+
+export default Footer
