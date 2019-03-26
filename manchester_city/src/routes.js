@@ -4,13 +4,18 @@ import {Switch , Route} from 'react-router-dom';
 import Home from './Components/Home/Home';
 import Signin from '../src/Components/Signin/Signin';
 import Dashboard from '../src/Components/Admin/Dashboard';
-const Routes = props => {
+
+import PrivateRoute from './Components/AuthRoutes/PrivateRoutes';
+import PublicRoute from './Components/AuthRoutes/PublicRoutes';
+
+const Routes = props => { 
   return (
     <Layout>
        <Switch> 
-        <Route path="/sign_in" component={Signin}/>
-        <Route exact path="/" component={Home}/>
-        <Route path="/dashboard" component={Dashboard}/>
+{/* компоненты получают теже свойства о ЮЗЕРЕ   */}
+            <PrivateRoute {...props} path="/dashboard" exact component={Dashboard}/>
+            <PublicRoute {...props} restricted={true} path="/sign_in" exact component={Signin}/>
+            <PublicRoute {...props} restricted={false} path="/" exact component={Home}/>
        </Switch>
     </Layout>
     );
