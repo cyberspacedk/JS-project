@@ -25,7 +25,7 @@ export const Tag = (props) => {
   } 
 };
 
-
+// sign data
 export const firebaseLooper = (snapshot) => {
   const data = [];
   snapshot.forEach((elem)=>{
@@ -36,7 +36,7 @@ export const firebaseLooper = (snapshot) => {
   });
   return data
 }
-
+// reverse  array
 export const reverseArray = (actualArray)=> {
   let reversedArray = [];
   for (let i=actualArray.length-1; i>=0; i--){

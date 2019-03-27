@@ -23,8 +23,12 @@ const firebaseMatches = firebaseDB.ref('matches');
 // get sunscribers
 const firebasePromotions = firebaseDB.ref('promotions')
 
+const firebaseTeams =firebaseDB.ref('teams');
+
 export {
   firebase,
   firebaseMatches, 
   firebasePromotions,
+  firebaseTeams,
+  firebaseDB
 }
