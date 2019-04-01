@@ -25,8 +25,7 @@ export default class AddEditMatch extends Component {
           type: "date", 
         },
         validation: {
-          required: true,
-          email: true
+          required: true, 
         },
         valid: false,
         validationMessage: "",

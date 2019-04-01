@@ -26,14 +26,14 @@ const BodyMassIndex = ({goal, height, lastMeasure}) => {
     <div className="speedometer"> 
 			<h2 className="speedometer-title">BMI (Body Mass Index)</h2>  
     	<ReactSpeedometer segments={3} 
-											minValue={16} 
-											maxValue={40} 
-											value={BMI}
-											height={200}
-											needleHeightRatio={0.7}
-											needleColor={'black'}  
-											ringWidth={40}
-											width={350} />
+                        minValue={16} 
+                        maxValue={40} 
+                        value={BMI}
+                        height={200}
+                        needleHeightRatio={0.7}
+                        needleColor={'black'}  
+                        ringWidth={40}
+                        width={350} />
 
      <p className="speedometer-describe"> <span>{height} cm</span> <span>{lastMeasure && lastMeasure.weight} kg</span> </p>
     </div>
